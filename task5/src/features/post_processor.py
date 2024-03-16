@@ -2,6 +2,7 @@
 
 import pandas as pd
 from src.config import PREDICTIONS_PATH
+from src.data.data_loader import load_test_raw_data
 
 
 def save_predictions(predictions: pd.DataFrame, file_name: str) -> None:
@@ -15,6 +16,12 @@ def save_predictions(predictions: pd.DataFrame, file_name: str) -> None:
 
     # Post-process the predictions
     predictions = post_process(predictions)
+
+    # Add TransactionID to predictions
+    x_test = load_test_raw_data()
+    x_test["IsFraud"] = predictions
+    predictions = x_test[["TransactionID", "IsFraud"]]
+
 
     # Save the predictions to a CSV file
     predictions_filename = PREDICTIONS_PATH + file_name
