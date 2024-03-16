@@ -6,6 +6,10 @@ __pycache__/
 # C extensions
 *.so
 
+# Add autoML generated files
+autoML/
+AutogluonModels/
+
 # Distribution / packaging
 .Python
 build/
