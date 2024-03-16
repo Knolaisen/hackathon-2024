@@ -5,19 +5,17 @@ from sklearn.preprocessing import StandardScaler
 from sklearn.model_selection import train_test_split
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.feature_selection import SelectFromModel
-from sklearn.metrics import accuracy_score, confusion_matrix, precision_score, recall_score
+from sklearn.metrics import accuracy_score, confusion_matrix, precision_score, recall_score, f1_score
 import warnings
 
 warnings.filterwarnings("ignore", category=UserWarning)
-
 
 # Load the data
 trainingData = pd.read_csv("task5\data\Transaction data training.csv")
 
 # One-hot encode the categorical data
 encodedTrainingData = pd.get_dummies(trainingData, columns=[
-    "Origin_Currency", "Currency", "CDB_Location_Country_x", 
-    "CDB_Location_CountryCode", "Opposite_party_Country", 
+    "Origin_Currency", "Opposite_party_Country", 
     "Transaction_Type", "Transaction_Location", "Deposit_Withdrawal"
 ])
 
@@ -75,11 +73,13 @@ accuracy = accuracy_score(y_test, y_pred)
 conf_matrix = confusion_matrix(y_test, y_pred)
 precision = precision_score(y_test, y_pred)
 recall = recall_score(y_test, y_pred)
+f1 = f1_score(y_test, y_pred)
 
 print("Accuracy: ", accuracy)
 print("Confusion Matrix: ", conf_matrix)
 print("Precision: ", precision)
 print("Recall: ", recall)
+print("F1 Score: ", f1)
 
 # Test the model on the test data
 testData = pd.read_csv("task5\data\Transaction data test.csv")
@@ -116,5 +116,6 @@ print(y_pred)
 
 # Save the predictions to a file
 # Add the "TransactionID" column to the predictions
-predictions = pd.DataFrame(y_pred, columns=["IsFraud"])
-predictions.to_csv("task5\data\predictions.csv", index=False)
+testData['IsFraud'] = y_pred
+final_predictions = testData[['TransactionID', 'IsFraud']]
+final_predictions.to_csv("task5\data\predictions.csv", index=False)
