@@ -6,12 +6,11 @@ from sklearn.metrics import accuracy_score, confusion_matrix, precision_score, r
 import numpy as np
 
 # Load the data
-trainingData = pd.read_csv("Transaction data training.csv")
+trainingData = pd.read_csv("task5\data\Transaction data training.csv")
 
 # One-hot encode the categorical data
 encodedTrainingData = pd.get_dummies(trainingData, columns=[
-    "Origin_Currency", "Currency", "CDB_Location_Country_x", 
-    "CDB_Location_CountryCode", "Opposite_party_Country", 
+    "Origin_Currency", "Opposite_party_Country", 
     "Transaction_Type", "Transaction_Location", "Deposit_Withdrawal"
 ])
 
@@ -23,7 +22,8 @@ encodedTrainingData.drop([
     'TransactionID', 'CustomerID', 'Merchant_Code', 'Opposite_party_ID', 
     'Opposite_party_Name', 'Opposite_party_Adress', 'Opposite_party_City', 
     'Transaction_Text', 'Transaction_Description_0', 'Transaction_Description_1', 
-    'Transaction_Description_2'
+    'Transaction_Description_2', "CDB_Location_Country_x", "Currency",  
+    "CDB_Location_CountryCode"
 ], axis=1, inplace=True)
 
 # Apply StandardScaler to numerical features only
