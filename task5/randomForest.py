@@ -6,6 +6,10 @@ from sklearn.model_selection import train_test_split
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.feature_selection import SelectFromModel
 from sklearn.metrics import accuracy_score, confusion_matrix, precision_score, recall_score
+import warnings
+
+warnings.filterwarnings("ignore", category=UserWarning)
+
 
 # Load the data
 trainingData = pd.read_csv("task5\data\Transaction data training.csv")
@@ -76,3 +80,35 @@ print("Accuracy: ", accuracy)
 print("Confusion Matrix: ", conf_matrix)
 print("Precision: ", precision)
 print("Recall: ", recall)
+
+# Test the model on the test data
+testData = pd.read_csv("task5\data\Transaction data test.csv")
+
+# One-hot encode the categorical data
+encodedTestData = pd.get_dummies(testData, columns=[
+    "Origin_Currency", "Currency", "CDB_Location_Country_x", 
+    "CDB_Location_CountryCode", "Opposite_party_Country", 
+    "Transaction_Type", "Transaction_Location", "Deposit_Withdrawal"
+])
+
+# Drop unnecessary columns from encodedTestData, not testData
+encodedTestData.drop([
+    'TransactionID', 'CustomerID', 'Merchant_Code', 'Opposite_party_ID', 
+    'Opposite_party_Name', 'Opposite_party_Adress', 'Opposite_party_City', 
+    'Transaction_Text', 'Transaction_Description_0', 'Transaction_Description_1', 
+    'Transaction_Description_2'
+], axis=1, inplace=True)
+
+#All the columns in the training data are present in the test data
+encodedTestData_Aligned = encodedTestData.reindex(columns=X.columns, fill_value=0)
+
+# Scale the test data
+scaled_test_features = scaler.transform(encodedTestData_Aligned)
+
+#Convert the scaled_test_features to a DataFrame
+scaled_test_df = pd.DataFrame(scaled_test_features, columns=encodedTestData_Aligned.columns)
+X_important_test = selector.transform(scaled_test_df)
+
+#Make predictions on the test data
+y_pred = important_model.predict(X_important_test)
+print(y_pred)
