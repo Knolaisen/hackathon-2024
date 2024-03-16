@@ -55,9 +55,9 @@ def engineer_features(features: pd.DataFrame) -> pd.DataFrame:
     scaler = StandardScaler()
 
     # Scale all remaining features except 'IsFraud'
-    features = encodedTrainingData.drop("IsFraud", axis=1).select_dtypes(
-        include=[np.number]
-    )
+    features = encodedTrainingData.drop(
+        "IsFraud", axis=1, errors="ignore"
+    ).select_dtypes(include=[np.number])
     scaled_features = scaler.fit_transform(features)
     scaled_df = pd.DataFrame(
         scaled_features, index=features.index, columns=features.columns
