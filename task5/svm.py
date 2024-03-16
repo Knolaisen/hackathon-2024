@@ -5,10 +5,13 @@ import sys
 import os
 
 # Get the current working directory
-current_working_directory = os.getcwd()
+current_working_directory = os.path.dirname(__file__)
 
 # Add the parent directory to sys.path
 sys.path.append(current_working_directory)
+
+# Change directory to task5/notebooks
+os.chdir(os.path.join(current_working_directory, "notebooks"))
 
 # Load data
 x_train, x_val, x_test, y_train, y_val, y_test = prepare_data()
