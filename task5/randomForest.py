@@ -112,3 +112,9 @@ X_important_test = selector.transform(scaled_test_df)
 #Make predictions on the test data
 y_pred = important_model.predict(X_important_test)
 print(y_pred)
+
+
+# Save the predictions to a file
+# Add the "TransactionID" column to the predictions
+predictions = pd.DataFrame(y_pred, columns=["IsFraud"])
+predictions.to_csv("task5\data\predictions.csv", index=False)
