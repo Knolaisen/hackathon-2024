@@ -1,0 +1,124 @@
+{
+    "columns": [
+        "TransactionID",
+        "CustomerID",
+        "Origin_Currency",
+        "Currency",
+        "CDB_Location_Country_x",
+        "CDB_Location_CountryCode",
+        "Transaction_Type",
+        "Origin_Date",
+        "System_Date",
+        "Completed_Date",
+        "Origin_Amount",
+        "Amount",
+        "Merchant_Code",
+        "Deposit_Withdrawal",
+        "Transaction_Text",
+        "Transaction_Description_0",
+        "Transaction_Description_1",
+        "Transaction_Description_2",
+        "Transaction_Location",
+        "Opposite_party_ID",
+        "Opposite_party_Name",
+        "Opposite_party_Adress",
+        "Opposite_party_City",
+        "Opposite_party_Country"
+    ],
+    "rows": 240000,
+    "cols": 24,
+    "target_is_numeric": true,
+    "columns_info": {
+        "TransactionID": [
+            "text_transform"
+        ],
+        "CustomerID": [
+            "scale"
+        ],
+        "Origin_Currency": [
+            "categorical",
+            "few_categories"
+        ],
+        "Currency": [
+            "constant_column"
+        ],
+        "CDB_Location_Country_x": [
+            "constant_column"
+        ],
+        "CDB_Location_CountryCode": [
+            "constant_column"
+        ],
+        "Transaction_Type": [
+            "categorical",
+            "few_categories"
+        ],
+        "Origin_Date": [
+            "categorical",
+            "many_categories"
+        ],
+        "System_Date": [
+            "categorical",
+            "many_categories"
+        ],
+        "Completed_Date": [
+            "categorical",
+            "many_categories"
+        ],
+        "Origin_Amount": [
+            "scale"
+        ],
+        "Amount": [
+            "scale"
+        ],
+        "Merchant_Code": [
+            "categorical",
+            "many_categories"
+        ],
+        "Deposit_Withdrawal": [
+            "categorical",
+            "few_categories"
+        ],
+        "Transaction_Text": [
+            "text_transform"
+        ],
+        "Transaction_Description_0": [
+            "text_transform"
+        ],
+        "Transaction_Description_1": [
+            "text_transform"
+        ],
+        "Transaction_Description_2": [
+            "text_transform"
+        ],
+        "Transaction_Location": [
+            "categorical",
+            "many_categories"
+        ],
+        "Opposite_party_ID": [
+            "missing_values",
+            "scale"
+        ],
+        "Opposite_party_Name": [
+            "categorical",
+            "many_categories"
+        ],
+        "Opposite_party_Adress": [
+            "text_transform"
+        ],
+        "Opposite_party_City": [
+            "missing_values",
+            "categorical",
+            "many_categories"
+        ],
+        "Opposite_party_Country": [
+            "missing_values",
+            "categorical",
+            "many_categories"
+        ]
+    },
+    "target_info": [],
+    "n_features": 24,
+    "is_sample_weighted": false,
+    "is_fairness_applied": false,
+    "n_classes": 2
+}

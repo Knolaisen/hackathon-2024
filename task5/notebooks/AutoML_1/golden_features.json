@@ -1,0 +1,77 @@
+{
+    "new_features": [
+        {
+            "feature1": "Opposite_party_ID",
+            "feature2": "Origin_Amount",
+            "operation": "sum",
+            "score": 0.2541345506
+        },
+        {
+            "feature1": "Origin_Amount",
+            "feature2": "Amount",
+            "operation": "diff",
+            "score": 0.2555267595
+        },
+        {
+            "feature1": "Opposite_party_ID",
+            "feature2": "CustomerID",
+            "operation": "ratio",
+            "score": 0.2613434746
+        },
+        {
+            "feature1": "CustomerID",
+            "feature2": "Opposite_party_ID",
+            "operation": "ratio",
+            "score": 0.2613453249
+        },
+        {
+            "feature1": "CustomerID",
+            "feature2": "Opposite_party_ID",
+            "operation": "diff",
+            "score": 0.2650035521
+        },
+        {
+            "feature1": "Origin_Amount",
+            "feature2": "CustomerID",
+            "operation": "ratio",
+            "score": 0.266421092
+        },
+        {
+            "feature1": "Opposite_party_ID",
+            "feature2": "CustomerID",
+            "operation": "sum",
+            "score": 0.2757829661
+        },
+        {
+            "feature1": "Opposite_party_ID",
+            "feature2": "Amount",
+            "operation": "ratio",
+            "score": 0.2761607099
+        },
+        {
+            "feature1": "Amount",
+            "feature2": "Opposite_party_ID",
+            "operation": "ratio",
+            "score": 0.2761607099
+        },
+        {
+            "feature1": "CustomerID",
+            "feature2": "Origin_Amount",
+            "operation": "diff",
+            "score": 0.285488179
+        }
+    ],
+    "new_columns": [
+        "Opposite_party_ID_sum_Origin_Amount",
+        "Origin_Amount_diff_Amount",
+        "Opposite_party_ID_ratio_CustomerID",
+        "CustomerID_ratio_Opposite_party_ID",
+        "CustomerID_diff_Opposite_party_ID",
+        "Origin_Amount_ratio_CustomerID",
+        "Opposite_party_ID_sum_CustomerID",
+        "Opposite_party_ID_ratio_Amount",
+        "Amount_ratio_Opposite_party_ID",
+        "CustomerID_diff_Origin_Amount"
+    ],
+    "ml_task": "binary_classification"
+}

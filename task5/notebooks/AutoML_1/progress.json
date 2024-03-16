@@ -1,0 +1,983 @@
+{
+    "fit_level": "finished",
+    "time_controller": {
+        "total_time_limit": 3600,
+        "model_time_limit": null,
+        "steps": [
+            "simple_algorithms",
+            "default_algorithms",
+            "golden_features",
+            "insert_random_feature",
+            "features_selection",
+            "ensemble"
+        ],
+        "algorithms": [
+            "Baseline",
+            "Decision Tree",
+            "Random Forest",
+            "Xgboost",
+            "Neural Network"
+        ],
+        "spend": [
+            {
+                "model_name": "prepare_data",
+                "model_type": "prepare_data",
+                "fit_level": "prepare_data",
+                "train_time": 11.528725385665894
+            },
+            {
+                "model_name": "1_Baseline",
+                "model_type": "Baseline",
+                "fit_level": "simple_algorithms",
+                "train_time": 1.7600598335266113
+            },
+            {
+                "model_name": "2_DecisionTree",
+                "model_type": "Decision Tree",
+                "fit_level": "simple_algorithms",
+                "train_time": 132.40466904640198
+            },
+            {
+                "model_name": "3_Default_Xgboost",
+                "model_type": "Xgboost",
+                "fit_level": "default_algorithms",
+                "train_time": 128.32862520217896
+            },
+            {
+                "model_name": "4_Default_NeuralNetwork",
+                "model_type": "Neural Network",
+                "fit_level": "default_algorithms",
+                "train_time": 143.1375994682312
+            },
+            {
+                "model_name": "5_Default_RandomForest",
+                "model_type": "Random Forest",
+                "fit_level": "default_algorithms",
+                "train_time": 602.1011714935303
+            },
+            {
+                "model_name": "3_Default_Xgboost_GoldenFeatures",
+                "model_type": "Xgboost",
+                "fit_level": "golden_features",
+                "train_time": 128.35753774642944
+            },
+            {
+                "model_name": "2_DecisionTree_GoldenFeatures",
+                "model_type": "Decision Tree",
+                "fit_level": "golden_features",
+                "train_time": 128.1632058620453
+            },
+            {
+                "model_name": "4_Default_NeuralNetwork_GoldenFeatures",
+                "model_type": "Neural Network",
+                "fit_level": "golden_features",
+                "train_time": 147.97374844551086
+            },
+            {
+                "model_name": "Ensemble",
+                "model_type": "Ensemble",
+                "fit_level": "ensemble",
+                "train_time": 8.394429683685303
+            }
+        ],
+        "is_hill_climbing": false,
+        "is_stacking": false
+    },
+    "all_params": {
+        "simple_algorithms": [
+            {
+                "additional": {
+                    "max_steps": 1,
+                    "max_rows_limit": null,
+                    "max_cols_limit": null
+                },
+                "preprocessing": {
+                    "columns_preprocessing": {
+                        "Currency": [
+                            "remove_column"
+                        ],
+                        "CDB_Location_Country_x": [
+                            "remove_column"
+                        ],
+                        "CDB_Location_CountryCode": [
+                            "remove_column"
+                        ]
+                    },
+                    "target_preprocessing": [
+                        "na_exclude"
+                    ],
+                    "ml_task": "binary_classification"
+                },
+                "validation_strategy": {
+                    "validation_type": "split",
+                    "train_ratio": 0.75,
+                    "shuffle": true,
+                    "stratify": true,
+                    "X_path": "AutoML_1\\X.data",
+                    "y_path": "AutoML_1\\y.data",
+                    "results_path": "AutoML_1"
+                },
+                "learner": {
+                    "model_type": "Baseline",
+                    "ml_task": "binary_classification",
+                    "n_jobs": -1,
+                    "seed": 43,
+                    "explain_level": 2
+                },
+                "automl_random_state": 42,
+                "ml_task": "binary_classification",
+                "explain_level": 2,
+                "name": "1_Baseline",
+                "status": "trained",
+                "final_loss": 0.25000245764432877,
+                "train_time": 2.725327730178833,
+                "data_type": "original",
+                "max_time_for_learner": 360.0
+            },
+            {
+                "additional": {
+                    "trees_in_step": 1,
+                    "train_cant_improve_limit": 0,
+                    "max_steps": 1,
+                    "max_rows_limit": null,
+                    "max_cols_limit": null
+                },
+                "preprocessing": {
+                    "columns_preprocessing": {
+                        "TransactionID": [
+                            "text_transform"
+                        ],
+                        "Origin_Currency": [
+                            "categorical_to_int"
+                        ],
+                        "Currency": [
+                            "remove_column"
+                        ],
+                        "CDB_Location_Country_x": [
+                            "remove_column"
+                        ],
+                        "CDB_Location_CountryCode": [
+                            "remove_column"
+                        ],
+                        "Transaction_Type": [
+                            "categorical_to_int"
+                        ],
+                        "Origin_Date": [
+                            "categorical_to_int"
+                        ],
+                        "System_Date": [
+                            "categorical_to_int"
+                        ],
+                        "Completed_Date": [
+                            "categorical_to_int"
+                        ],
+                        "Merchant_Code": [
+                            "categorical_to_int"
+                        ],
+                        "Deposit_Withdrawal": [
+                            "categorical_to_int"
+                        ],
+                        "Transaction_Text": [
+                            "text_transform"
+                        ],
+                        "Transaction_Description_0": [
+                            "text_transform"
+                        ],
+                        "Transaction_Description_1": [
+                            "text_transform"
+                        ],
+                        "Transaction_Description_2": [
+                            "text_transform"
+                        ],
+                        "Transaction_Location": [
+                            "categorical_to_int"
+                        ],
+                        "Opposite_party_ID": [
+                            "na_fill_median"
+                        ],
+                        "Opposite_party_Name": [
+                            "categorical_to_int"
+                        ],
+                        "Opposite_party_Adress": [
+                            "text_transform"
+                        ],
+                        "Opposite_party_City": [
+                            "na_fill_median",
+                            "categorical_to_int"
+                        ],
+                        "Opposite_party_Country": [
+                            "na_fill_median",
+                            "categorical_to_int"
+                        ]
+                    },
+                    "target_preprocessing": [
+                        "na_exclude"
+                    ],
+                    "ml_task": "binary_classification"
+                },
+                "validation_strategy": {
+                    "validation_type": "split",
+                    "train_ratio": 0.75,
+                    "shuffle": true,
+                    "stratify": true,
+                    "X_path": "AutoML_1\\X.data",
+                    "y_path": "AutoML_1\\y.data",
+                    "results_path": "AutoML_1"
+                },
+                "learner": {
+                    "model_type": "Decision Tree",
+                    "ml_task": "binary_classification",
+                    "n_jobs": -1,
+                    "seed": 43,
+                    "criterion": "entropy",
+                    "max_depth": 4,
+                    "explain_level": 2
+                },
+                "automl_random_state": 42,
+                "ml_task": "binary_classification",
+                "explain_level": 2,
+                "name": "2_DecisionTree",
+                "status": "trained",
+                "final_loss": 0.22216132691807436,
+                "train_time": 133.4455325603485,
+                "data_type": "original",
+                "max_time_for_learner": 360.0
+            }
+        ],
+        "default_algorithms": [
+            {
+                "additional": {
+                    "max_rounds": 10000,
+                    "early_stopping_rounds": 50,
+                    "max_rows_limit": null,
+                    "max_cols_limit": null
+                },
+                "preprocessing": {
+                    "columns_preprocessing": {
+                        "TransactionID": [
+                            "text_transform"
+                        ],
+                        "Origin_Currency": [
+                            "categorical_to_int"
+                        ],
+                        "Currency": [
+                            "remove_column"
+                        ],
+                        "CDB_Location_Country_x": [
+                            "remove_column"
+                        ],
+                        "CDB_Location_CountryCode": [
+                            "remove_column"
+                        ],
+                        "Transaction_Type": [
+                            "categorical_to_int"
+                        ],
+                        "Origin_Date": [
+                            "categorical_to_int"
+                        ],
+                        "System_Date": [
+                            "categorical_to_int"
+                        ],
+                        "Completed_Date": [
+                            "categorical_to_int"
+                        ],
+                        "Merchant_Code": [
+                            "categorical_to_int"
+                        ],
+                        "Deposit_Withdrawal": [
+                            "categorical_to_int"
+                        ],
+                        "Transaction_Text": [
+                            "text_transform"
+                        ],
+                        "Transaction_Description_0": [
+                            "text_transform"
+                        ],
+                        "Transaction_Description_1": [
+                            "text_transform"
+                        ],
+                        "Transaction_Description_2": [
+                            "text_transform"
+                        ],
+                        "Transaction_Location": [
+                            "categorical_to_int"
+                        ],
+                        "Opposite_party_ID": [
+                            "na_fill_median"
+                        ],
+                        "Opposite_party_Name": [
+                            "categorical_to_int"
+                        ],
+                        "Opposite_party_Adress": [
+                            "text_transform"
+                        ],
+                        "Opposite_party_City": [
+                            "na_fill_median",
+                            "categorical_to_int"
+                        ],
+                        "Opposite_party_Country": [
+                            "na_fill_median",
+                            "categorical_to_int"
+                        ]
+                    },
+                    "target_preprocessing": [
+                        "na_exclude"
+                    ],
+                    "ml_task": "binary_classification"
+                },
+                "validation_strategy": {
+                    "validation_type": "split",
+                    "train_ratio": 0.75,
+                    "shuffle": true,
+                    "stratify": true,
+                    "X_path": "AutoML_1\\X.data",
+                    "y_path": "AutoML_1\\y.data",
+                    "results_path": "AutoML_1"
+                },
+                "learner": {
+                    "model_type": "Xgboost",
+                    "ml_task": "binary_classification",
+                    "n_jobs": -1,
+                    "objective": "binary:logistic",
+                    "eta": 0.075,
+                    "max_depth": 6,
+                    "min_child_weight": 1,
+                    "subsample": 1.0,
+                    "colsample_bytree": 1.0,
+                    "seed": 3,
+                    "eval_metric": "logloss",
+                    "explain_level": 2
+                },
+                "automl_random_state": 42,
+                "ml_task": "binary_classification",
+                "explain_level": 2,
+                "name": "3_Default_Xgboost",
+                "status": "trained",
+                "final_loss": 0.2016963518441151,
+                "train_time": 129.52125215530396,
+                "data_type": "original",
+                "max_time_for_learner": 360.0
+            },
+            {
+                "additional": {
+                    "max_rows_limit": null,
+                    "max_cols_limit": null
+                },
+                "preprocessing": {
+                    "columns_preprocessing": {
+                        "TransactionID": [
+                            "text_transform"
+                        ],
+                        "CustomerID": [
+                            "scale_normal"
+                        ],
+                        "Origin_Currency": [
+                            "categorical_to_int",
+                            "scale_normal"
+                        ],
+                        "Currency": [
+                            "remove_column"
+                        ],
+                        "CDB_Location_Country_x": [
+                            "remove_column"
+                        ],
+                        "CDB_Location_CountryCode": [
+                            "remove_column"
+                        ],
+                        "Transaction_Type": [
+                            "categorical_to_int",
+                            "scale_normal"
+                        ],
+                        "Origin_Date": [
+                            "categorical_to_int",
+                            "scale_normal"
+                        ],
+                        "System_Date": [
+                            "categorical_to_int",
+                            "scale_normal"
+                        ],
+                        "Completed_Date": [
+                            "categorical_to_int",
+                            "scale_normal"
+                        ],
+                        "Origin_Amount": [
+                            "scale_normal"
+                        ],
+                        "Amount": [
+                            "scale_normal"
+                        ],
+                        "Merchant_Code": [
+                            "categorical_to_int",
+                            "scale_normal"
+                        ],
+                        "Deposit_Withdrawal": [
+                            "categorical_to_int",
+                            "scale_normal"
+                        ],
+                        "Transaction_Text": [
+                            "text_transform"
+                        ],
+                        "Transaction_Description_0": [
+                            "text_transform"
+                        ],
+                        "Transaction_Description_1": [
+                            "text_transform"
+                        ],
+                        "Transaction_Description_2": [
+                            "text_transform"
+                        ],
+                        "Transaction_Location": [
+                            "categorical_to_int",
+                            "scale_normal"
+                        ],
+                        "Opposite_party_ID": [
+                            "na_fill_median",
+                            "scale_normal"
+                        ],
+                        "Opposite_party_Name": [
+                            "categorical_to_int",
+                            "scale_normal"
+                        ],
+                        "Opposite_party_Adress": [
+                            "text_transform"
+                        ],
+                        "Opposite_party_City": [
+                            "na_fill_median",
+                            "categorical_to_int",
+                            "scale_normal"
+                        ],
+                        "Opposite_party_Country": [
+                            "na_fill_median",
+                            "categorical_to_int",
+                            "scale_normal"
+                        ]
+                    },
+                    "target_preprocessing": [
+                        "na_exclude"
+                    ],
+                    "ml_task": "binary_classification"
+                },
+                "validation_strategy": {
+                    "validation_type": "split",
+                    "train_ratio": 0.75,
+                    "shuffle": true,
+                    "stratify": true,
+                    "X_path": "AutoML_1\\X.data",
+                    "y_path": "AutoML_1\\y.data",
+                    "results_path": "AutoML_1"
+                },
+                "learner": {
+                    "model_type": "Neural Network",
+                    "ml_task": "binary_classification",
+                    "n_jobs": -1,
+                    "dense_1_size": 32,
+                    "dense_2_size": 16,
+                    "learning_rate": 0.05,
+                    "seed": 4,
+                    "explain_level": 2
+                },
+                "automl_random_state": 42,
+                "ml_task": "binary_classification",
+                "explain_level": 2,
+                "name": "4_Default_NeuralNetwork",
+                "status": "trained",
+                "final_loss": 0.23593690887375574,
+                "train_time": 144.30007243156433,
+                "data_type": "original",
+                "max_time_for_learner": 360.0
+            },
+            {
+                "additional": {
+                    "trees_in_step": 100,
+                    "train_cant_improve_limit": 1,
+                    "min_steps": 1,
+                    "max_steps": 50,
+                    "early_stopping_rounds": 50,
+                    "max_rows_limit": null,
+                    "max_cols_limit": null
+                },
+                "preprocessing": {
+                    "columns_preprocessing": {
+                        "TransactionID": [
+                            "text_transform"
+                        ],
+                        "Origin_Currency": [
+                            "categorical_to_int"
+                        ],
+                        "Currency": [
+                            "remove_column"
+                        ],
+                        "CDB_Location_Country_x": [
+                            "remove_column"
+                        ],
+                        "CDB_Location_CountryCode": [
+                            "remove_column"
+                        ],
+                        "Transaction_Type": [
+                            "categorical_to_int"
+                        ],
+                        "Origin_Date": [
+                            "categorical_to_int"
+                        ],
+                        "System_Date": [
+                            "categorical_to_int"
+                        ],
+                        "Completed_Date": [
+                            "categorical_to_int"
+                        ],
+                        "Merchant_Code": [
+                            "categorical_to_int"
+                        ],
+                        "Deposit_Withdrawal": [
+                            "categorical_to_int"
+                        ],
+                        "Transaction_Text": [
+                            "text_transform"
+                        ],
+                        "Transaction_Description_0": [
+                            "text_transform"
+                        ],
+                        "Transaction_Description_1": [
+                            "text_transform"
+                        ],
+                        "Transaction_Description_2": [
+                            "text_transform"
+                        ],
+                        "Transaction_Location": [
+                            "categorical_to_int"
+                        ],
+                        "Opposite_party_ID": [
+                            "na_fill_median"
+                        ],
+                        "Opposite_party_Name": [
+                            "categorical_to_int"
+                        ],
+                        "Opposite_party_Adress": [
+                            "text_transform"
+                        ],
+                        "Opposite_party_City": [
+                            "na_fill_median",
+                            "categorical_to_int"
+                        ],
+                        "Opposite_party_Country": [
+                            "na_fill_median",
+                            "categorical_to_int"
+                        ]
+                    },
+                    "target_preprocessing": [
+                        "na_exclude"
+                    ],
+                    "ml_task": "binary_classification"
+                },
+                "validation_strategy": {
+                    "validation_type": "split",
+                    "train_ratio": 0.75,
+                    "shuffle": true,
+                    "stratify": true,
+                    "X_path": "AutoML_1\\X.data",
+                    "y_path": "AutoML_1\\y.data",
+                    "results_path": "AutoML_1"
+                },
+                "learner": {
+                    "model_type": "Random Forest",
+                    "ml_task": "binary_classification",
+                    "n_jobs": -1,
+                    "criterion": "gini",
+                    "max_features": 0.9,
+                    "min_samples_split": 30,
+                    "max_depth": 4,
+                    "seed": 5,
+                    "eval_metric_name": "logloss",
+                    "explain_level": 2
+                },
+                "automl_random_state": 42,
+                "ml_task": "binary_classification",
+                "explain_level": 2,
+                "name": "5_Default_RandomForest",
+                "status": "trained",
+                "final_loss": 0.22114715804340726,
+                "train_time": 603.161572933197,
+                "data_type": "original",
+                "max_time_for_learner": 360.0
+            }
+        ],
+        "golden_features": [
+            {
+                "additional": {
+                    "max_rounds": 10000,
+                    "early_stopping_rounds": 50,
+                    "max_rows_limit": null,
+                    "max_cols_limit": null
+                },
+                "preprocessing": {
+                    "columns_preprocessing": {
+                        "TransactionID": [
+                            "text_transform"
+                        ],
+                        "Origin_Currency": [
+                            "categorical_to_int"
+                        ],
+                        "Currency": [
+                            "remove_column"
+                        ],
+                        "CDB_Location_Country_x": [
+                            "remove_column"
+                        ],
+                        "CDB_Location_CountryCode": [
+                            "remove_column"
+                        ],
+                        "Transaction_Type": [
+                            "categorical_to_int"
+                        ],
+                        "Origin_Date": [
+                            "categorical_to_int"
+                        ],
+                        "System_Date": [
+                            "categorical_to_int"
+                        ],
+                        "Completed_Date": [
+                            "categorical_to_int"
+                        ],
+                        "Merchant_Code": [
+                            "categorical_to_int"
+                        ],
+                        "Deposit_Withdrawal": [
+                            "categorical_to_int"
+                        ],
+                        "Transaction_Text": [
+                            "text_transform"
+                        ],
+                        "Transaction_Description_0": [
+                            "text_transform"
+                        ],
+                        "Transaction_Description_1": [
+                            "text_transform"
+                        ],
+                        "Transaction_Description_2": [
+                            "text_transform"
+                        ],
+                        "Transaction_Location": [
+                            "categorical_to_int"
+                        ],
+                        "Opposite_party_ID": [
+                            "na_fill_median"
+                        ],
+                        "Opposite_party_Name": [
+                            "categorical_to_int"
+                        ],
+                        "Opposite_party_Adress": [
+                            "text_transform"
+                        ],
+                        "Opposite_party_City": [
+                            "na_fill_median",
+                            "categorical_to_int"
+                        ],
+                        "Opposite_party_Country": [
+                            "na_fill_median",
+                            "categorical_to_int"
+                        ]
+                    },
+                    "target_preprocessing": [
+                        "na_exclude"
+                    ],
+                    "ml_task": "binary_classification",
+                    "golden_features": {
+                        "results_path": "AutoML_1",
+                        "ml_task": "binary_classification",
+                        "n_jobs": -1
+                    }
+                },
+                "validation_strategy": {
+                    "validation_type": "split",
+                    "train_ratio": 0.75,
+                    "shuffle": true,
+                    "stratify": true,
+                    "X_path": "AutoML_1\\X.data",
+                    "y_path": "AutoML_1\\y.data",
+                    "results_path": "AutoML_1"
+                },
+                "learner": {
+                    "model_type": "Xgboost",
+                    "ml_task": "binary_classification",
+                    "n_jobs": -1,
+                    "objective": "binary:logistic",
+                    "eta": 0.075,
+                    "max_depth": 6,
+                    "min_child_weight": 1,
+                    "subsample": 1.0,
+                    "colsample_bytree": 1.0,
+                    "seed": 3,
+                    "eval_metric": "logloss",
+                    "explain_level": 2
+                },
+                "automl_random_state": 42,
+                "ml_task": "binary_classification",
+                "explain_level": 2,
+                "name": "3_Default_Xgboost_GoldenFeatures",
+                "status": "trained",
+                "final_loss": 0.2019629676996722,
+                "train_time": 129.4677619934082,
+                "data_type": "original_golden_features",
+                "max_time_for_learner": 360.0
+            },
+            {
+                "additional": {
+                    "trees_in_step": 1,
+                    "train_cant_improve_limit": 0,
+                    "max_steps": 1,
+                    "max_rows_limit": null,
+                    "max_cols_limit": null
+                },
+                "preprocessing": {
+                    "columns_preprocessing": {
+                        "TransactionID": [
+                            "text_transform"
+                        ],
+                        "Origin_Currency": [
+                            "categorical_to_int"
+                        ],
+                        "Currency": [
+                            "remove_column"
+                        ],
+                        "CDB_Location_Country_x": [
+                            "remove_column"
+                        ],
+                        "CDB_Location_CountryCode": [
+                            "remove_column"
+                        ],
+                        "Transaction_Type": [
+                            "categorical_to_int"
+                        ],
+                        "Origin_Date": [
+                            "categorical_to_int"
+                        ],
+                        "System_Date": [
+                            "categorical_to_int"
+                        ],
+                        "Completed_Date": [
+                            "categorical_to_int"
+                        ],
+                        "Merchant_Code": [
+                            "categorical_to_int"
+                        ],
+                        "Deposit_Withdrawal": [
+                            "categorical_to_int"
+                        ],
+                        "Transaction_Text": [
+                            "text_transform"
+                        ],
+                        "Transaction_Description_0": [
+                            "text_transform"
+                        ],
+                        "Transaction_Description_1": [
+                            "text_transform"
+                        ],
+                        "Transaction_Description_2": [
+                            "text_transform"
+                        ],
+                        "Transaction_Location": [
+                            "categorical_to_int"
+                        ],
+                        "Opposite_party_ID": [
+                            "na_fill_median"
+                        ],
+                        "Opposite_party_Name": [
+                            "categorical_to_int"
+                        ],
+                        "Opposite_party_Adress": [
+                            "text_transform"
+                        ],
+                        "Opposite_party_City": [
+                            "na_fill_median",
+                            "categorical_to_int"
+                        ],
+                        "Opposite_party_Country": [
+                            "na_fill_median",
+                            "categorical_to_int"
+                        ]
+                    },
+                    "target_preprocessing": [
+                        "na_exclude"
+                    ],
+                    "ml_task": "binary_classification",
+                    "golden_features": {
+                        "results_path": "AutoML_1",
+                        "ml_task": "binary_classification",
+                        "n_jobs": -1
+                    }
+                },
+                "validation_strategy": {
+                    "validation_type": "split",
+                    "train_ratio": 0.75,
+                    "shuffle": true,
+                    "stratify": true,
+                    "X_path": "AutoML_1\\X.data",
+                    "y_path": "AutoML_1\\y.data",
+                    "results_path": "AutoML_1"
+                },
+                "learner": {
+                    "model_type": "Decision Tree",
+                    "ml_task": "binary_classification",
+                    "n_jobs": -1,
+                    "seed": 43,
+                    "criterion": "entropy",
+                    "max_depth": 4,
+                    "explain_level": 2
+                },
+                "automl_random_state": 42,
+                "ml_task": "binary_classification",
+                "explain_level": 2,
+                "name": "2_DecisionTree_GoldenFeatures",
+                "status": "trained",
+                "final_loss": 0.21955514050753883,
+                "train_time": 129.19684600830078,
+                "data_type": "original_golden_features",
+                "max_time_for_learner": 360.0
+            },
+            {
+                "additional": {
+                    "max_rows_limit": null,
+                    "max_cols_limit": null
+                },
+                "preprocessing": {
+                    "columns_preprocessing": {
+                        "TransactionID": [
+                            "text_transform"
+                        ],
+                        "CustomerID": [
+                            "scale_normal"
+                        ],
+                        "Origin_Currency": [
+                            "categorical_to_int",
+                            "scale_normal"
+                        ],
+                        "Currency": [
+                            "remove_column"
+                        ],
+                        "CDB_Location_Country_x": [
+                            "remove_column"
+                        ],
+                        "CDB_Location_CountryCode": [
+                            "remove_column"
+                        ],
+                        "Transaction_Type": [
+                            "categorical_to_int",
+                            "scale_normal"
+                        ],
+                        "Origin_Date": [
+                            "categorical_to_int",
+                            "scale_normal"
+                        ],
+                        "System_Date": [
+                            "categorical_to_int",
+                            "scale_normal"
+                        ],
+                        "Completed_Date": [
+                            "categorical_to_int",
+                            "scale_normal"
+                        ],
+                        "Origin_Amount": [
+                            "scale_normal"
+                        ],
+                        "Amount": [
+                            "scale_normal"
+                        ],
+                        "Merchant_Code": [
+                            "categorical_to_int",
+                            "scale_normal"
+                        ],
+                        "Deposit_Withdrawal": [
+                            "categorical_to_int",
+                            "scale_normal"
+                        ],
+                        "Transaction_Text": [
+                            "text_transform"
+                        ],
+                        "Transaction_Description_0": [
+                            "text_transform"
+                        ],
+                        "Transaction_Description_1": [
+                            "text_transform"
+                        ],
+                        "Transaction_Description_2": [
+                            "text_transform"
+                        ],
+                        "Transaction_Location": [
+                            "categorical_to_int",
+                            "scale_normal"
+                        ],
+                        "Opposite_party_ID": [
+                            "na_fill_median",
+                            "scale_normal"
+                        ],
+                        "Opposite_party_Name": [
+                            "categorical_to_int",
+                            "scale_normal"
+                        ],
+                        "Opposite_party_Adress": [
+                            "text_transform"
+                        ],
+                        "Opposite_party_City": [
+                            "na_fill_median",
+                            "categorical_to_int",
+                            "scale_normal"
+                        ],
+                        "Opposite_party_Country": [
+                            "na_fill_median",
+                            "categorical_to_int",
+                            "scale_normal"
+                        ]
+                    },
+                    "target_preprocessing": [
+                        "na_exclude"
+                    ],
+                    "ml_task": "binary_classification",
+                    "golden_features": {
+                        "results_path": "AutoML_1",
+                        "ml_task": "binary_classification",
+                        "n_jobs": -1
+                    }
+                },
+                "validation_strategy": {
+                    "validation_type": "split",
+                    "train_ratio": 0.75,
+                    "shuffle": true,
+                    "stratify": true,
+                    "X_path": "AutoML_1\\X.data",
+                    "y_path": "AutoML_1\\y.data",
+                    "results_path": "AutoML_1"
+                },
+                "learner": {
+                    "model_type": "Neural Network",
+                    "ml_task": "binary_classification",
+                    "n_jobs": -1,
+                    "dense_1_size": 32,
+                    "dense_2_size": 16,
+                    "learning_rate": 0.05,
+                    "seed": 4,
+                    "explain_level": 2
+                },
+                "automl_random_state": 42,
+                "ml_task": "binary_classification",
+                "explain_level": 2,
+                "name": "4_Default_NeuralNetwork_GoldenFeatures",
+                "status": "trained",
+                "final_loss": 0.23663445587720916,
+                "train_time": 149.2428162097931,
+                "data_type": "original_golden_features",
+                "max_time_for_learner": 360.0
+            }
+        ],
+        "ensemble": [
+            {
+                "model_type": "ensemble",
+                "is_stacked": false,
+                "name": "Ensemble",
+                "status": "trained",
+                "final_loss": 0.20148561774081936,
+                "train_time": 8.394429683685303
+            }
+        ]
+    },
+    "adjust_validation": false
+}

@@ -1,0 +1,32 @@
+if (Opposite_party_Name <= 59009.5) and (Origin_Amount_diff_Amount > -1103.03) and (Transaction_Location > 5145.5) and (Origin_Amount_diff_Amount <= 185.885) then class: 0 (proba: 97.68%) | based on 33,165 samples
+
+if (Opposite_party_Name > 59009.5) and (Transaction_Location > 5145.5) and (Origin_Amount_diff_Amount > -10.335) and (Origin_Amount_diff_Amount <= 199.245) then class: 0 (proba: 87.31%) | based on 32,023 samples
+
+if (Opposite_party_Name <= 59009.5) and (Origin_Amount_diff_Amount > -1103.03) and (Transaction_Location <= 5145.5) and (Deposit_Withdrawal > 0.5) then class: 0 (proba: 99.15%) | based on 29,141 samples
+
+if (Opposite_party_Name > 59009.5) and (Transaction_Location <= 5145.5) and (Amount_ratio_Opposite_party_ID <= 0.099) and (Origin_Amount_diff_Amount > -1569.58) then class: 0 (proba: 97.02%) | based on 23,838 samples
+
+if (Opposite_party_Name <= 59009.5) and (Origin_Amount_diff_Amount > -1103.03) and (Transaction_Location <= 5145.5) and (Deposit_Withdrawal <= 0.5) then class: 0 (proba: 99.78%) | based on 15,410 samples
+
+if (Opposite_party_Name > 59009.5) and (Transaction_Location <= 5145.5) and (Amount_ratio_Opposite_party_ID > 0.099) and (Deposit_Withdrawal > 0.5) then class: 0 (proba: 91.95%) | based on 14,002 samples
+
+if (Opposite_party_Name > 59009.5) and (Transaction_Location > 5145.5) and (Origin_Amount_diff_Amount <= -10.335) and (Opposite_party_Name <= 59038.5) then class: 0 (proba: 65.35%) | based on 10,535 samples
+
+if (Opposite_party_Name > 59009.5) and (Transaction_Location <= 5145.5) and (Amount_ratio_Opposite_party_ID > 0.099) and (Deposit_Withdrawal <= 0.5) then class: 0 (proba: 96.85%) | based on 7,482 samples
+
+if (Opposite_party_Name <= 59009.5) and (Origin_Amount_diff_Amount <= -1103.03) and (Transaction_Location <= 5167.0) and (Origin_Amount_diff_Amount > -950563.344) then class: 0 (proba: 94.52%) | based on 6,570 samples
+
+if (Opposite_party_Name <= 59009.5) and (Origin_Amount_diff_Amount <= -1103.03) and (Transaction_Location > 5167.0) and (Origin_Currency <= 16.5) then class: 0 (proba: 89.61%) | based on 2,309 samples
+
+if (Opposite_party_Name <= 59009.5) and (Origin_Amount_diff_Amount <= -1103.03) and (Transaction_Location <= 5167.0) and (Origin_Amount_diff_Amount <= -950563.344) then class: 0 (proba: 88.98%) | based on 1,660 samples
+
+if (Opposite_party_Name <= 59009.5) and (Origin_Amount_diff_Amount > -1103.03) and (Transaction_Location > 5145.5) and (Origin_Amount_diff_Amount > 185.885) then class: 0 (proba: 90.03%) | based on 1,143 samples
+
+if (Opposite_party_Name > 59009.5) and (Transaction_Location > 5145.5) and (Origin_Amount_diff_Amount > -10.335) and (Origin_Amount_diff_Amount > 199.245) then class: 0 (proba: 61.95%) | based on 1,096 samples
+
+if (Opposite_party_Name <= 59009.5) and (Origin_Amount_diff_Amount <= -1103.03) and (Transaction_Location > 5167.0) and (Origin_Currency > 16.5) then class: 0 (proba: 82.81%) | based on 640 samples
+
+if (Opposite_party_Name > 59009.5) and (Transaction_Location <= 5145.5) and (Amount_ratio_Opposite_party_ID <= 0.099) and (Origin_Amount_diff_Amount <= -1569.58) then class: 0 (proba: 90.7%) | based on 527 samples
+
+if (Opposite_party_Name > 59009.5) and (Transaction_Location > 5145.5) and (Origin_Amount_diff_Amount <= -10.335) and (Opposite_party_Name > 59038.5) then class: 0 (proba: 92.16%) | based on 459 samples
+
